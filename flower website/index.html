@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowers Bee | Fresh Flowers </title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #0e4282;
+            background-color: #f9f7f4;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Georgia', serif;
+            color: #5c8d76;
+        }
+
+        a {
+            text-decoration: none;
+            color: #5c8d76;
+        }
+
+        a:hover {
+            color: #399ba4;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #5c8d76;
+        }
+
+        .logo span {
+            color: #66b9b9;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        /* Hero section */
+        .hero {
+            background-color: #d5eae2;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #5c8d76;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #6a6a6a;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e88c7d;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #d67a6c;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Featured products */
+        .featured {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: #5c8d76;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #6a6a6a;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #e88c7d;
+            margin-bottom: 15px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #6a6a6a;
+            margin-bottom: 15px;
+        }
+
+        /* About section */
+        .about {
+            padding: 60px 0;
+            background-color: #f0f7f2;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-img {
+            flex: 1;
+            height: 300px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        /* Services */
+        .services {
+            padding: 60px 0;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            color: #5c8d76;
+            margin-bottom: 20px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 60px 0;
+            background-color: #f0f7f2;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #5c8d76;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #e0e0e0;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <div class="Screenshot 2025-04-25 113302.png"></div>
+                    Flowers<span>Bee</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Fresh Flowers gives every where</h1>
+            <p>Handcrafted bouquets, thoughtfully arranged and delivered with love — bringing the beauty of nature to brighten your every day..</p>
+            <a href="#shop" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Featured Products -->
+    <section class="featured" id="shop">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Beauty Bouquets</h2>
+                <p>Hand picked with love for any Events</p>
+            </div>
+            <div class="products">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="images.jpg" alt="tulip" class="product-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Tulip</h3>
+                        <div class="product-price">LKR.3500</div>
+                        <p class="product-desc">Bright your life and room get more fresh with that beautiful flowers.</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-img">
+                        <img src="rose2.jpg" alt="red rose" class="product-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Red Rose</h3>
+                        <div class="product-price">LKR.2900</div>
+                        <p class="product-desc">Get some romantic flower for your close one and making happy</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-img">
+                        <img src="sunflower.jpg" alt="Sunflower Bouquet" class="product-image">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Sun Flower</h3>
+                        <div class="product-price">LKR.2500</div>
+                        <p class="product-desc">Bright soft get more beautiful and making shine</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Flower Bee</h2>
+                <p>Our passhion </p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The shop begingig in 2005</h3>
+                    <p>At Flower Bee, we believe in the power of flowers to brighten days and create lasting memories. Our journey began in a small local shop with a simple mission: to share the joy and beauty of fresh flowers with our community.</p>
+                    <p>Every bouquet is carefully crafted by our expert florists who have years of experience and a passion for floral design. We source our flowers from sustainable local farms whenever possible, ensuring the freshest blooms and supporting local agriculture.</p>
+                    <p>Whether you're celebrating a special occasion, expressing sympathy, or simply treating yourself to something beautiful, we're here to help you find the perfect floral arrangement.</p>
+                </div>
+                <div class="about-img">
+                    <img src="flower_shop_resized_443x300.jpg" alt="Flower Bee Shop Interior" class="shop-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>How we can help you</p>
+            </div>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>24H  Delivery</h3>
+                    <p>Orders placed before 6pm can be delivered the same day. Fresh and beutiful flowers, fast service.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💍</div>
+                    <h3>Wedding arrangment flower</h3>
+                    <p>Custom arrangements for your special day. Schedule a consultation with our wedding specialist.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3> Events</h3>
+                    <p>Transform your corporate event with elegant floral displays tailored to your brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>contact  our team</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Flower Bee</h3>
+                    <p>Bringing fresh flowers and joy to your doorstep since 2005.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>456 Homagama,Colombo.</li>
+                        <li>(112)333 333 3333
+                        </li>
+                        <li> hello@flowerbee.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Week days: 9am - 6pm</li>
+                        <li>Saturday: 10am - 5pm</li>
+                        <li>Sunday: Closed</li>
+                        <li>Poya days: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flower Bee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
